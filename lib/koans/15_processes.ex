@@ -4,17 +4,17 @@ defmodule Processes do
   @intro "Processes"
 
   koan "You are a process" do
-    assert Process.alive?(self()) == ___
+    assert Process.alive?(self()) == true
   end
 
   koan "You can ask a process to introduce itself" do
     information = Process.info(self())
 
-    assert information[:status] == ___
+    assert information[:status] == :running
   end
 
   koan "Processes are referenced by their process ID (pid)" do
-    assert is_pid(self()) == ___
+    assert is_pid(self()) == true
   end
 
   koan "New processes are spawned functions" do
@@ -24,7 +24,7 @@ defmodule Processes do
         end
       end)
 
-    assert is_pid(value) == ___
+    assert is_pid(value) == true
   end
 
   koan "Processes die when their function exits" do
